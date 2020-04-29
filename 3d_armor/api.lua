@@ -316,6 +316,8 @@ armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabili
 	if not name then
 		return
 	end
+	local set_state
+	local set_count
 	local state = 0
 	local count = 0
 	local recip = true
@@ -376,10 +378,16 @@ armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabili
 			end
 			if damage == true then
 				self:damage(player, i, stack, use)
+				set_state = self.def[name].state
+				set_count = self.def[name].count
 			end
 			state = state + stack:get_wear()
 			count = count + 1
 		end
+	end
+	if set_count and set_count ~= count then
+		state = set_state or state
+		count = set_count or count
 	end
 	self.def[name].state = state
 	self.def[name].count = count
