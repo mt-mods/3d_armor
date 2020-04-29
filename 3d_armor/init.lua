@@ -392,8 +392,9 @@ if armor.config.punch_damage == true then
 	end)
 end
 
-minetest.register_on_player_hpchange(function(player, hp_change)
-	if player and hp_change < 0 then
+minetest.register_on_player_hpchange(function(player, hp_change, reason)
+	if player and reason.type ~= "drown" and reason.hunger == nil
+			and hp_change < 0 then
 		local name = player:get_player_name()
 		if name then
 			local heal = armor.def[name].heal
