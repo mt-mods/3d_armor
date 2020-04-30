@@ -68,6 +68,11 @@ if armor.materials.wood then
 			{"default:steel_ingot"},
 		},
 	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "shields:shield_wood",
+		burntime = 8,
+	})
 end
 
 if armor.materials.cactus then
@@ -106,6 +111,11 @@ if armor.materials.cactus then
 			{"shields:shield_cactus"},
 			{"default:steel_ingot"},
 		},
+	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "shields:shield_cactus",
+		burntime = 16,
 	})
 end
 
