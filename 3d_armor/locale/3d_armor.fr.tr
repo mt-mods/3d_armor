@@ -56,21 +56,3 @@ Radiation=Radiation
 Your @1 got destroyed!=Une partie de votre armure a été détruite : @1 !
 Your @1 is almost broken!=Une partie de votre armure est presque détruite : @1 !
 [3d_armor] Fire Nodes disabled=[3d_armor] Nœuds de type feu désactivés
-
-
-##### not used anymore #####
-
-3d_armor_ui: Mod loaded but unused.=3d_armor_ui : Mod chargé mais inutilisé.
-3d Armor=Armure 3d
-Armor not initialized!=Armure non initialisée !
-Admin Shield=Bouclier d'admin
-Wooden Shield=Bouclier en bois
-Enhanced Wood Shield=Bouclier en bois amélioré
-Cactus Shield=Bouclier en cactus
-Enhanced Cactus Shield=Bouclier en cactus amélioré
-Steel Shield=Bouclier en acier
-Bronze Shield=Bouclier en bronze
-Diamond Shield=Bouclier en diamant
-Gold Shield=Bouclier en or
-Mithril Shield=Bouclier en mithril
-Crystal Shield=Bouclier en cristal
