@@ -5,13 +5,11 @@ local last_punch_time = {}
 local pending_players = {}
 local timer = 0
 
--- local functions
-local S = minetest.get_translator(minetest.get_current_modname())
-local F = minetest.formspec_escape
-
-armor.get_translator = S
-
 dofile(modpath.."/api.lua")
+
+-- local functions
+local F = minetest.formspec_escape
+local S = armor.get_translator
 
 -- integration test
 if minetest.settings:get_bool("enable_3d_armor_integration_test") then

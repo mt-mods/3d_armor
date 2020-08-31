@@ -1,5 +1,5 @@
 -- support for i18n
-local S = armor.get_translator
+local S = minetest.get_translator(minetest.get_current_modname())
 
 local skin_previews = {}
 local use_player_monoids = minetest.global_exists("player_monoids")
@@ -74,7 +74,8 @@ armor = {
 		on_destroy = {},
 	},
 	migrate_old_inventory = true,
-	version = "0.4.13",
+  version = "0.4.13",
+  get_translator = S
 }
 
 armor.config = {
