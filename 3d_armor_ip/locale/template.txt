@@ -1,0 +1,8 @@
+# textdomain: 3d_armor_ip
+
+
+### init.lua ###
+
+3d_armor_ip: Mod loaded but unused.=
+Armor=
+Back=
