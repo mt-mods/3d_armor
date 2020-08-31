@@ -5,13 +5,11 @@ local last_punch_time = {}
 local pending_players = {}
 local timer = 0
 
--- support for i18n
-armor_i18n = { }
-armor_i18n.gettext, armor_i18n.ngettext = dofile(modpath.."/intllib.lua")
-
 -- local functions
-local S = armor_i18n.gettext
+local S = minetest.get_translator(minetest.get_current_modname())
 local F = minetest.formspec_escape
+
+armor.get_translator = S
 
 dofile(modpath.."/api.lua")
 

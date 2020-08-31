@@ -1,5 +1,5 @@
 -- support for i18n
-local S = armor_i18n.gettext
+local S = armor.get_translator
 
 armor:register_armor("3d_armor:helmet_admin", {
 	description = S("Admin Helmet"),

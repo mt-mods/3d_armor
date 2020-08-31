@@ -1,5 +1,5 @@
 -- support for i18n
-local S = armor_i18n.gettext
+local S = minetest.get_translator(minetest.get_current_modname())
 local F = minetest.formspec_escape
 local has_technic = minetest.get_modpath("technic") ~= nil
 

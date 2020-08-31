@@ -4,7 +4,6 @@ unused_args = false
 globals = {
 	"wieldview",
 	"armor",
-	"armor_i18n",
 	"inventory_plus"
 }
 
@@ -21,7 +20,6 @@ read_globals = {
 	"default",
 	"minetest",
 	"unified_inventory",
-	"intllib",
 	"wardrobe",
 	"player_monoids",
 	"armor_monoid",

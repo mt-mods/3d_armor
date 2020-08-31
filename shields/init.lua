@@ -1,5 +1,5 @@
 -- support for i18n
-local S = armor_i18n.gettext
+local S = minetest.get_translator(minetest.get_current_modname())
 
 local disable_sounds = minetest.settings:get_bool("shields_disable_sounds")
 local function play_sound_effect(player, name)

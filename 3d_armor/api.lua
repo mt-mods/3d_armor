@@ -1,5 +1,5 @@
 -- support for i18n
-local S = armor_i18n.gettext
+local S = armor.get_translator
 
 local skin_previews = {}
 local use_player_monoids = minetest.global_exists("player_monoids")
