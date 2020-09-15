@@ -24,4 +24,4 @@ of the Lua API.
 
 Disabling the feature in-game: If you want to hide the wielded item
 you can add an INT metadata to the player called "show_wielded_item" and set
-it to 2 (any other value will show the wielded item again)
+it to 2 (any other value will show the wielded item again).
