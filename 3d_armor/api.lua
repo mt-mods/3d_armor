@@ -407,13 +407,13 @@ armor.damage = function(self, player, index, stack, use)
 end
 
 armor.remove_all = function(self, player)
-    local name, armor_inv = self.get_valid_player(player, "[remove_all]")
+    local name, armor_inv = self:get_valid_player(player, "[remove_all]")
 	if not name then
 		return
     end
 	armor_inv:set_list("armor", {})
-	self.set_player_armor(player)
-	self.save_armor_inventory(player)
+	self:set_player_armor(player)
+	self:save_armor_inventory(player)
 end
 
 armor.get_player_skin = function(self, name)
