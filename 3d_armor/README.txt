@@ -162,7 +162,7 @@ and so should NOT be called from `on_unequip` to avoid an infinite loop.
 
 armor:remove_all(player)
 
-Remove all armors from the player's inventory without triggering any callback.
+Removes all armors from the player's inventory without triggering any callback.
 
 Item Callbacks:
 
