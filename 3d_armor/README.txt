@@ -160,6 +160,10 @@ Adds wear to a single armor itemstack, triggers `on_damage` callbacks and
 updates the necessary inventories. Also handles item destruction callbacks
 and so should NOT be called from `on_unequip` to avoid an infinite loop.
 
+armor:remove_all(player)
+
+Remove all armors from the player's inventory without triggering any callback.
+
 Item Callbacks:
 
 on_equip = func(player, index, stack)
