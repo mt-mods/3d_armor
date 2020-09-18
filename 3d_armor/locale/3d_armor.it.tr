@@ -3,9 +3,9 @@
 
 ### api.lua ###
 
-3d_armor: Detached armor inventory is nil @1=3d_armor: L'inventario staccato dell'armatura è nullo @1
-3d_armor: Player name is nil @1=3d_armor: Il nome della/del gicatrice/tore è nullo @1
-3d_armor: Player reference is nil @1=3d_armor: Il riferimento alla/al giocatrice/tore è nullo @1
+3d_armor: Detached armor inventory is nil @1=3d_armor: L'inventario separato dell'armatura è nullo @1
+3d_armor: Player name is nil @1=3d_armor: Il nome dell'utente è nullo @1
+3d_armor: Player reference is nil @1=3d_armor: Il riferimento all'utente è nullo @1
 
 ### armor.lua ###
 
@@ -37,10 +37,10 @@ Mithril Boots=Stivali di mithril
 Mithril Chestplate=Corazza di mithril
 Mithril Helmet=Elmo di mithril
 Mithril Leggings=Gambali di mithril
-Steel Boots=Stivali di acciaio
-Steel Chestplate=Corazza di acciaio
-Steel Helmet=Elmo di acciaio
-Steel Leggings=Gambali di acciaio
+Steel Boots=Stivali d'acciaio
+Steel Chestplate=Corazza d'acciaio
+Steel Helmet=Elmo d'acciaio
+Steel Leggings=Gambali d'acciaio
 Wood Boots=Stivali di legno
 Wood Chestplate=Corazza di legno
 Wood Helmet=Elmo di legno
@@ -48,28 +48,28 @@ Wood Leggings=Gambali di legno
 
 ### init.lua ###
 
-3d_armor: Failed to initialize player=3d_armor: Inizializzazione della/del giocatrice/tore fallita
+3d_armor: Failed to initialize player=3d_armor: Inizializzazione dell'utente fallita
 Fire=Fuoco
 Heal=Guarigione
 Level=Livello
 Radiation=Radiazione
-Your @1 got destroyed!=Il/i vostro/i @1 è/sono stato/i distrutto/i!
-Your @1 is almost broken!=
+Your @1 got destroyed!=@1 distrutto/a/i!
+Your @1 is almost broken!=@1 quasi distrutto/a/i
 [3d_armor] Fire Nodes disabled=[3d_armor] Nodi fuoco disabilitati
 
 
 ##### not used anymore #####
 
-3d_armor_ip: Mod loaded but unused.=3d_armor_ip: Mod caricato ma inutilizzato.
+3d_armor_ip: Mod loaded but unused.=3d_armor_ip: Mod caricata ma inutilizzata.
 Back=Indietro
 Armor=Armatura
-3d_armor_sfinv: Mod loaded but unused.=3d_armor_sfinv: Mod caricato ma inutilizzato.
+3d_armor_sfinv: Mod loaded but unused.=3d_armor_sfinv: Mod caricata ma inutilizzata.
 Armor stand top=Parte superiore del supporto per armatura
 Armor stand=Supporto per armatura
 Armor Stand=Supporto per armatura
 Locked Armor stand=Supporto per armatura chiuso a chiave
 Armor Stand (owned by @1)=Supporto per armatura (di proprietà di @1)
-3d_armor_ui: Mod loaded but unused.=3d_armor_ui: Mod caricato ma inutilizzato.
+3d_armor_ui: Mod loaded but unused.=3d_armor_ui: Mod caricata ma inutilizzata.
 3d Armor=Armatura 3D
 Armor not initialized!=Armatura non inizializzata!
 Admin Shield=Scudo dell'amministratrice/tore
@@ -77,7 +77,7 @@ Wooden Shield=Scudo di legno
 Enhanced Wood Shield=Scudo di legno migliorato
 Cactus Shield=Scudo di cactus
 Enhanced Cactus Shield=Scudo di cactus migliorato
-Steel Shield=Scudo di acciaio
+Steel Shield=Scudo d'acciaio
 Bronze Shield=Scudo di bronzo
 Diamond Shield=Scudo di diamante
 Gold Shield=Scudo d'oro
