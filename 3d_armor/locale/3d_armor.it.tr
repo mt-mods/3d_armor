@@ -53,8 +53,8 @@ Fire=Fuoco
 Heal=Guarigione
 Level=Livello
 Radiation=Radiazione
-Your @1 got destroyed!=@1 distrutto/a/i!
-Your @1 is almost broken!=@1 quasi distrutto/a/i
+Your @1 got destroyed!=@1 in frantumi!
+Your @1 is almost broken!=@1 quasi in frantumi!
 [3d_armor] Fire Nodes disabled=[3d_armor] Nodi fuoco disabilitati
 
 
