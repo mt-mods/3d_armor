@@ -113,10 +113,10 @@ armor.register_armor = function(self, name, def)
 	}
 	local function merge_tables(a, b)
 		if type(a) == 'table' and type(b) == 'table' then
-			for k,v in pairs(b) do 
-				if type(v)=='table' and type(a[k] or false)=='table' then 
-					merge_tables(a[k],v) else a[k]=v 
-				end 
+			for k,v in pairs(b) do
+				if type(v)=='table' and type(a[k] or false)=='table' then
+					merge_tables(a[k],v) else a[k]=v
+				end
 			end
 		end
 		return a
