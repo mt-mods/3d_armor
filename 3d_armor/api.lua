@@ -103,25 +103,13 @@ armor.config = {
 -- Armor Registration
 
 armor.register_armor = function(self, name, def)
-	local wear_on_rightclick = {
-		on_secondary_use = function(itemstack, player)
-			armor:equip(player, itemstack:get_name())
-		end,
-		on_place = function(itemstack, player)
-			armor:equip(player, itemstack:get_name())
-		end
-	}
-	local function merge_tables(a, b)
-		if type(a) == 'table' and type(b) == 'table' then
-			for k,v in pairs(b) do
-				if type(v)=='table' and type(a[k] or false)=='table' then
-					merge_tables(a[k],v) else a[k]=v
-				end
-			end
-		end
-		return a
+	def.on_secondary_use = function(itemstack, player)
+		return armor:equip(player, itemstack)
 	end
-	minetest.register_tool(name, merge_tables(def, wear_on_rightclick))
+	def.on_place = function(itemstack, player)
+		return armor:equip(player, itemstack)
+	end
+	minetest.register_tool(name, def)
 end
 
 armor.register_armor_group = function(self, group, base)
@@ -440,39 +428,37 @@ armor.get_weared_armor_elements = function(self, player)
 	return weared_armor
 end
 
-armor.equip = function(self, player, armor_name)
-    local name, inv = self:get_valid_player(player, "[equip]")
+armor.equip = function(self, player, itemstack)
+    local name, armor_inv = self:get_valid_player(player, "[equip]")
     local weared_armor = self:get_weared_armor_elements(player)
-    local armor_element = self:get_element(armor_name)
-	if not name then
-		return
-	elseif self:get_element(armor_name) == nil then
-		return
-	elseif inv:contains_item("armor", ItemStack(armor_name)) then
-		return
-    end
-	if weared_armor[armor_element] ~= nil then
-        self:unequip(player, weared_armor[armor_element])
-    end
-	inv:add_item("armor", ItemStack(armor_name))
-	minetest.after(0, function() player:get_inventory():remove_item("main", ItemStack(armor_name)) end)
-	self:set_player_armor(player)
-	self:save_armor_inventory(player)
+    local armor_element = self:get_element(itemstack:get_name())
+	if name and armor_element then
+		if weared_armor[armor_element] ~= nil then
+			self:unequip(player, armor_element)
+		end
+		armor_inv:add_item("armor", itemstack:take_item())
+		self:set_player_armor(player)
+		self:save_armor_inventory(player)
+	end
+	return itemstack
 end
 
-armor.unequip = function(self, player, armor_name)
-    local name, inv = self:get_valid_player(player, "[unequip]")
-	if not name then
-        return
-	elseif self:get_element(armor_name) == nil then
+armor.unequip = function(self, player, armor_element)
+    local name, armor_inv = self:get_valid_player(player, "[unequip]")
+	local weared_armor = self:get_weared_armor_elements(player)
+	if not name or not weared_armor[armor_element] then
 		return
-	elseif not inv:contains_item("armor", ItemStack(armor_name)) then
-		return
-    end
-	inv:remove_item("armor", ItemStack(armor_name))
-	minetest.after(0, function() player:get_inventory():add_item("main", ItemStack(armor_name)) end)
+	end
+	local itemstack = armor_inv:remove_item("armor", ItemStack(weared_armor[armor_element]))
+	minetest.after(0, function()
+		local inv = player:get_inventory()
+		if inv:room_for_item("main", itemstack) then
+			inv:add_item("main", itemstack)
+		else
+			minetest.add_item(player:get_pos(), itemstack)
+		end
+	end)
     self:set_player_armor(player)
-	self:save_armor_inventory(player)
 	self:save_armor_inventory(player)
 end
 
