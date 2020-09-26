@@ -196,7 +196,7 @@ armor.set_player_armor = function(self, player)
 	local attributes = {}
 	local levels = {}
 	local groups = {}
-	if not minetest.settings:get("enable_damage") then
+	if not get_bool("enable_damage") then
 		groups["immortal"] = 1
 	end
 	local change = {}
