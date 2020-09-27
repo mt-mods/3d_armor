@@ -106,9 +106,6 @@ armor.register_armor = function(self, name, def)
 	def.on_secondary_use = function(itemstack, player)
 		return armor:equip(player, itemstack)
 	end
-	def.on_place = function(itemstack, player)
-		return armor:equip(player, itemstack)
-	end
 	minetest.register_tool(name, def)
 end
 
