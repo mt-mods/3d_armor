@@ -106,6 +106,16 @@ armor.register_armor = function(self, name, def)
 	def.on_secondary_use = function(itemstack, player)
 		return armor:equip(player, itemstack)
 	end
+	def.on_place = function(itemstack, player, pointed_thing)
+		if pointed_thing.type == "node" and player and not player:get_player_control().sneak then
+			local node = minetest.get_node(pointed_thing.under)
+			local ndef = minetest.registered_nodes[node.name]
+			if ndef and ndef.on_rightclick then
+				return ndef.on_rightclick(pointed_thing.under, node, player, itemstack, pointed_thing)
+			end
+		end
+		return armor:equip(player, itemstack)
+	end
 	minetest.register_tool(name, def)
 end
 
