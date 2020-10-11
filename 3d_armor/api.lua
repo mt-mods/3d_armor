@@ -315,7 +315,10 @@ armor.set_player_armor = function(self, player)
 		})
 		pova.do_override(player)
 	else
-		player:set_physics_override(physics)
+		local player_physics_locked = player:get_meta():get_int("player_physics_locked")
+		if player_physics_locked == nil or player_physics_locked == 0 then
+			player:set_physics_override(physics)
+		end
 	end
 	self.textures[name].armor = texture
 	self.textures[name].preview = preview
@@ -488,6 +491,16 @@ armor.get_player_skin = function(self, name)
 		return wardrobe.playerSkins[name]
 	end
 	return armor.default_skin..".png"
+end
+
+armor.update_skin = function(self, name)
+	minetest.after(0, function()
+		local pplayer = minetest.get_player_by_name(name)
+		if pplayer then
+			self.textures[name].skin = self:get_player_skin(name)
+			self:set_player_armor(pplayer)
+		end
+	end)
 end
 
 armor.add_preview = function(self, preview)
