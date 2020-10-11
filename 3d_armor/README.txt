@@ -172,6 +172,10 @@ armor:unequip(player, armor_name)
 
 Unequip the armor, adding the itemstack to the main inventory.
 
+armor:update_skin(player_name)
+
+Triggers a skin update with the same action as if a field with `skins_set` was submitted.
+
 Item Callbacks:
 
 on_equip = func(player, index, stack)
@@ -201,3 +205,8 @@ armor:register_on_update(function(player)
 	print(player:get_player_name().." armor updated!")
 end)
 
+
+Note:
+
+The player physics modifications won't be applied via `set_physics_override` if `player_physics_locked` is set to 1
+in the respective player's meta.
