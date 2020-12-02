@@ -1,6 +1,6 @@
 Modpack - 3d Armor [0.4.13]
 ===========================
-![3d_armor screenshot](https://github.com/minetest-mods/3d_armor/blob/master/screenshot.png)
+![3d_armor screenshot](https://github.com/sirrobzeroone/3d_armor/blob/master/screenshot.png)
 
 
 ![](https://github.com/minetest-mods/3d_armor/workflows/luacheck/badge.svg)
