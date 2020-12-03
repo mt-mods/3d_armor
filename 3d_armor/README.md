@@ -124,10 +124,18 @@ Override the following default settings by adding them to your ***minetest.conf*
 ## 3d_Armor item storage
 3d_Armor stores each armor piece a player currently has equiped in a ***detached*** inventory. The easiest way to access this inventory if needed is using this line of code
 
-	local _, armor_inv = armor:get_valid_player(player, "[modname]")
+	local _, armor_inv = armor:get_valid_player(player, "3d_armor")
 
 **Example**	
-
+	armor:register_on_equip(function(player, index, stack)
+		local _, armor_inv = armor:get_valid_player(player, "3d_armor")
+			for i = 1, 6 do
+				local stack = armor_inv:get_stack("armor", i)
+					if stack:get_name() == "3d_armor:chestplate_gold" then
+						minetest.chat_send_player(player:get_player_name(),"Got to love the Bling!!!")
+					end
+			end
+	end)
 
 ## Armor Registration
 
@@ -288,12 +296,25 @@ The below Diamond chestplate has a 12% chance to completely block all damage (ar
  - level 5 protects against lava
 	
 **Example**
-
+	armor:register_armor("mod_name:fire_proof_jacket", {
+		description = "Fire Proof Jacket",
+		inventory_image = "mod_name_inv_fire_proof_jacket.png",
+		groups = {armor_torso=1, armor_fire=3, armor_use=1000},
+		armor_groups = {fleshy=10},
+		damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
+	})
 
 #### Armor_water
 ***"Armor_water"*** will periodically restore a players breath when underwater. This only has one level or state, which is armor_water=1  
 
 **Example**
+	armor:register_armor("mod_name:helmet_underwater_breath", {
+		description = "Helmet of Underwater Breathing",
+		inventory_image = "mod_name_inv_helmet_underwater_breath.png",
+		groups = {armor_head=1, armor_water=1, armor_use=1000},
+		armor_groups = {fleshy=5},
+		damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
+	})
 
 ### Physics
 The physics attributes supported by 3d_armor are ***physics_jump, physics_speed and physics_gravity***. Although 3d_armor supports the use of this with no other mods it is recommended that the mod [player_monoids](https://forum.minetest.net/viewtopic.php?t=14895) is used to help with intermod compatability. 
@@ -303,8 +324,6 @@ The physics attributes supported by 3d_armor are ***physics_jump, physics_speed 
 ***physics_speed*** - Will increase/decrease the walk speed of the player so they walk faster/slower. Done as a fractional so "physics_speed=1.5" will increase speed by 50%.
 
 ***physics_gravity*** - Will increase/decrease gravity the player experiences so it's higher/lower. Done as a fractional so "physics_gravity=1.5" will increase gravity by 50%. 
-
-*need to checl that multiplyer info as i think a 50% increase should 0.5 not 1.5 but this appears to contrdict the MT API...player monoids maybe doing something..or it could be as i entered the value as .5 not 0.5 which has exposed an oddity in the engine*
 
 *Note: The player physics modifications won't be applied via `set_physics_override` if `player_physics_locked` is set to 1 in the respective player's meta.*
 
@@ -410,18 +429,18 @@ When fire protection is enabled, hitter == "fire" in the event of fire damage.
 
 #### armor register_on_update
 
-	armor:register_on_update(func(player))
+	armor:register_on_update(function(player))
 
 #### armor register_on_equip
 
-	armor:register_on_equip(func(player, index, stack))
+	armor:register_on_equip(function(player, index, stack))
 
 #### armor register_on_unequip
 
-	armor:register_on_unequip(func(player, index, stack))
+	armor:register_on_unequip(function(player, index, stack))
 
 #### armor register_on_destroy
-armor:register_on_destroy(func(player, index, stack))
+armor:register_on_destroy(function(player, index, stack))
 
  **Example**
 
