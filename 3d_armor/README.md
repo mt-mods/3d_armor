@@ -297,6 +297,7 @@ The below Diamond chestplate has a 12% chance to completely block all damage (ar
  - level 5 protects against lava
 	
 **Example**
+
 	armor:register_armor("mod_name:fire_proof_jacket", {
 		description = "Fire Proof Jacket",
 		inventory_image = "mod_name_inv_fire_proof_jacket.png",
@@ -309,6 +310,7 @@ The below Diamond chestplate has a 12% chance to completely block all damage (ar
 ***"Armor_water"*** will periodically restore a players breath when underwater. This only has one level or state, which is armor_water=1  
 
 **Example**
+
 	armor:register_armor("mod_name:helmet_underwater_breath", {
 		description = "Helmet of Underwater Breathing",
 		inventory_image = "mod_name_inv_helmet_underwater_breath.png",
