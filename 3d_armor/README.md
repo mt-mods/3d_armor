@@ -126,7 +126,7 @@ Override the following default settings by adding them to your ***minetest.conf*
 
 	local _, armor_inv = armor:get_valid_player(player, "3d_armor")
 
-**Example**	
+**Example**  	
 	armor:register_on_equip(function(player, index, stack)
 		local _, armor_inv = armor:get_valid_player(player, "3d_armor")
 			for i = 1, 6 do
