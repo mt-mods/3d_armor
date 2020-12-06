@@ -355,7 +355,10 @@ armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabili
 				local level = damage_groups.level or 0
 				local groupcaps = tool_capabilities.groupcaps or {}
 				local uses = 0
-				damage = false
+                damage = false
+				 if next(groupcaps) == nil then                       --Temp fix Issue #24
+					damage = true                                     --Temp fix Issue #24
+				 end                                                  --Temp fix Issue #24			
 				for group, caps in pairs(groupcaps) do
 					local maxlevel = caps.maxlevel or 0
 					local diff = maxlevel - level
