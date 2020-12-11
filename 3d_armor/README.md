@@ -105,12 +105,13 @@ Override the following default settings by adding them to your ***minetest.conf*
 
     armor_fire_protect = false
 	
-### Fire protection enabled disable torch fire damage. 
+### Fire protection enabled, disable torch fire damage 
+**when fire protection is enabled allows you to disable fire damage from torches**
 **defaults to true if using ethereal mod**
 
     armor_fire_protect_torch = false
 
-### Enable punch damage effects.
+### Enable punch damage effects
 
     armor_punch_damage = true
 
