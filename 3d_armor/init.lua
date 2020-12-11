@@ -62,6 +62,17 @@ for material, _ in pairs(armor.materials) do
 	end
 end
 
+-- Remove torch damage if fire_protect_torch == false
+if armor.config.fire_protect_torch == false and armor.config.fire_protect == true then
+	for k,v in pairs(armor.fire_nodes) do
+		for k2,v2 in pairs(v) do
+			if string.find (v2,"torch") then
+				armor.fire_nodes[k] = nil
+			end
+		end
+	end
+end
+
 -- Mod Compatibility
 
 if minetest.get_modpath("technic") then

@@ -29,7 +29,7 @@
 
 **Recommends:** sfinv, unified_inventory or smart_inventory (use only one to avoid conflicts)
 
-**Supports:** player_monoids and armor_monoid
+**Supports:** player_monoids, armor_monoid and POVA
 
 Adds craftable armor that is visible to other players. Each armor item worn contributes to
 a player's armor group level making them less vulnerable to weapons.
@@ -104,6 +104,11 @@ Override the following default settings by adding them to your ***minetest.conf*
 **defaults to true if using ethereal mod**
 
     armor_fire_protect = false
+	
+### Fire protection enabled disable torch fire damage. 
+**defaults to true if using ethereal mod**
+
+    armor_fire_protect_torch = false
 
 ### Enable punch damage effects.
 
@@ -322,11 +327,11 @@ The below Diamond chestplate has a 12% chance to completely block all damage (ar
 ### Physics
 The physics attributes supported by 3d_armor are ***physics_jump, physics_speed and physics_gravity***. Although 3d_armor supports the use of this with no other mods it is recommended that the mod [player_monoids](https://forum.minetest.net/viewtopic.php?t=14895) is used to help with intermod compatability. 
 
-***physics_jump*** - Will increase/decrease the jump strength of the player so they can jump more/less. Done as a fractional so "physics_jump=1.5" will increase jump strength by 50%.   
+***physics_jump*** - Will increase/decrease the jump strength of the player so they can jump more/less. The base number is "1" and any value is added or subtracted, supports fractional so "physics_jump=1" will increase jump strength by 100%. "physics_jump= -0.5" will decrease jump by 50%.  
 
-***physics_speed*** - Will increase/decrease the walk speed of the player so they walk faster/slower. Done as a fractional so "physics_speed=1.5" will increase speed by 50%.
+***physics_speed*** - Will increase/decrease the walk speed of the player so they walk faster/slower. The base number is "1" and any value is added or subtracted, supports fractional so "physics_speed=1.5" will increase speed by 150%, "physics_speed= -0.5" will decrease speed by 50%. 
 
-***physics_gravity*** - Will increase/decrease gravity the player experiences so it's higher/lower. Done as a fractional so "physics_gravity=1.5" will increase gravity by 50%. 
+***physics_gravity*** - Will increase/decrease gravity the player experiences so it's higher/lower. The base number is "1" and any value is added or subtracted, supports fractional so "physics_gravity=2" will increase gravity by 200%, "physics_gravity= -1" will decrease gravity by 100%. 
 
 *Note: The player physics modifications won't be applied via `set_physics_override` if `player_physics_locked` is set to 1 in the respective player's meta.*
 

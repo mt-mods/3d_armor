@@ -44,6 +44,9 @@ armor_water_protect (Enable water protection) bool true
 # Enable fire protection (defaults true if using ethereal mod).
 armor_fire_protect (Enable fire protection) bool false
 
+# Enable fire damage from torches (defaults true if using ethereal mod).
+armor_fire_protect_torch (Enable fire protection torch damage) bool false
+
 # Enable punch damage effects.
 armor_punch_damage (Enable damage effects) bool true
 
