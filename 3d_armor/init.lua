@@ -389,6 +389,10 @@ if armor.config.drop == true or armor.config.destroy == true then
 			end)
 		end
 	end)
+else -- reset un-dropped armor and it's effects
+	minetest.register_on_respawnplayer(function(player)
+		armor:set_player_armor(player)
+	end)
 end
 
 if armor.config.punch_damage == true then
