@@ -477,34 +477,24 @@ else
 end
 
 if armor.config.fire_protect == true then
+	minetest.register_on_player_hpchange(function(player, hp_change, reason)
 
-minetest.register_on_player_hpchange(function(player, hp_change, reason)
-
-	if reason.type == "node_damage" and reason.node then
-
-		-- fire protection
-		if armor.config.fire_protect == true and hp_change < 0 then
-
-			local hp = player:get_hp()
-			local name = player:get_player_name()
-
-			for _,igniter in pairs(armor.fire_nodes) do
-
-				if reason.node == igniter[1] then
-
-					if armor.def[name].fire < igniter[2] then
-
-						armor:punch(player, "fire")
-
-					else
-
-						hp_change = 0
+		if reason.type == "node_damage" and reason.node then
+			-- fire protection
+			if armor.config.fire_protect == true and hp_change < 0 then
+				local hp = player:get_hp()
+				local name = player:get_player_name()
+				for _,igniter in pairs(armor.fire_nodes) do
+					if reason.node == igniter[1] then
+						if armor.def[name].fire < igniter[2] then
+							armor:punch(player, "fire")
+						else
+							hp_change = 0
+						end
 					end
 				end
 			end
 		end
-	end
-
-	return hp_change
-
-end, true)
+		return hp_change
+	end, true)
+end
