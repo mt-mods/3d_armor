@@ -482,7 +482,6 @@ if armor.config.fire_protect == true then
 		if reason.type == "node_damage" and reason.node then
 			-- fire protection
 			if armor.config.fire_protect == true and hp_change < 0 then
-				local hp = player:get_hp()
 				local name = player:get_player_name()
 				for _,igniter in pairs(armor.fire_nodes) do
 					if reason.node == igniter[1] then
