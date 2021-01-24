@@ -453,11 +453,11 @@ minetest.register_globalstep(function(dtime)
 		end
 	end
 
-	-- water breathing protection
+	-- water breathing protection, added by TenPlus1
 	if armor.config.water_protect == true then
 		for _,player in pairs(minetest.get_connected_players()) do
 			local name = player:get_player_name()
-			if name and armor.def[name].water > 0 and
+			if armor.def[name].water > 0 and
 					player:get_breath() < 10 then
 				player:set_breath(10)
 			end
@@ -465,8 +465,7 @@ minetest.register_globalstep(function(dtime)
 	end
 end)
 
--- Fire Protection and water breathing, added by TenPlus1.
-
+-- Fire Protection, added by TenPlus1.
 if armor.config.fire_protect == true then
 	-- override any hot nodes that do not already deal damage
 	for _, row in pairs(armor.fire_nodes) do
