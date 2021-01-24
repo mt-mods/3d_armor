@@ -468,12 +468,17 @@ end)
 -- Fire Protection and water breathing, added by TenPlus1.
 
 if armor.config.fire_protect == true then
-	-- override torch damage
-	minetest.override_item("default:torch", {damage_per_second = 1})
-	minetest.override_item("default:torch_ceiling", {damage_per_second = 1})
-	minetest.override_item("default:torch_wall", {damage_per_second = 1})
+	-- override any hot nodes that do not already deal damage
+	for _, row in pairs(armor.fire_nodes) do
+		if minetest.registered_nodes[row[1]] then
+			local damage = minetest.registered_nodes[row[1]].damage_per_second
+			if not damage or damage == 0 then
+				minetest.override_item(row[1], {damage_per_second = row[3]})
+			end
+		end
+	end
 else
-	print (S("[3d_armor] Fire Nodes disabled"))
+	print ("[3d_armor] Fire Nodes disabled")
 end
 
 if armor.config.fire_protect == true then
