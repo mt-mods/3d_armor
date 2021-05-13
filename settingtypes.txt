@@ -64,6 +64,12 @@ armor_migrate_old_inventory (Migrate old armor inventories) bool true
 shields_disable_sounds (Disable shield sounds) bool false
 
 
+[technic_armor]
+
+# Enable or disable technic_armor.
+armor_enable_technic (Enable technic armor) bool true
+
+
 [wieldview]
 
 # Set number of seconds between visible wielded item updates.
