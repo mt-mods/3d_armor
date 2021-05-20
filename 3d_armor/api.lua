@@ -200,6 +200,10 @@ armor.update_player_visuals = function(self, player)
 	self:run_callbacks("on_update", player)
 end
 
+
+-- armor is not visible on player model if enabled
+local transparent_armor = core.settings:get_bool("armor_transparent", false)
+
 armor.set_player_armor = function(self, player)
 	local name, armor_inv = self:get_valid_player(player, "[set_player_armor]")
 	if not name then
@@ -258,7 +262,9 @@ armor.set_player_armor = function(self, player)
 			tex = tex:gsub(".png$", "")
 			local prev = def.preview or tex.."_preview"
 			prev = prev:gsub(".png$", "")
-			texture = texture.."^"..tex..".png"
+			if not transparent_armor then
+				texture = texture.."^"..tex..".png"
+			end
 			preview = preview.."^"..prev..".png"
 			state = state + stack:get_wear()
 			count = count + 1

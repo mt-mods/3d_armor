@@ -58,6 +58,9 @@ armor_punch_damage (Enable damage effects) bool true
 # Enable migration of old armor inventories.
 armor_migrate_old_inventory (Migrate old armor inventories) bool true
 
+# Don't show armor on character model.
+armor_transparent (Transparent armor) bool false
+
 
 [shields]
 
