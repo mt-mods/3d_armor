@@ -202,7 +202,7 @@ end
 
 
 -- armor is not visible on player model if enabled
-local transparent_armor = core.settings:get_bool("armor_transparent", false)
+local transparent_armor = minetest.settings:get_bool("armor_transparent", false)
 
 armor.set_player_armor = function(self, player)
 	local name, armor_inv = self:get_valid_player(player, "[set_player_armor]")
