@@ -673,3 +673,10 @@ armor.drop_armor = function(pos, stack)
 		end
 	end
 end
+
+--- Allows skin mod to be set manually.
+--
+--  Useful for skin mod forks that do not use the same name.
+armor.set_skin_mod = function(mod)
+	armor.skin_mod = mod
+end
