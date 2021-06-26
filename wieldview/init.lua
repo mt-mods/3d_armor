@@ -69,12 +69,12 @@ end
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	wieldview.wielded_item[name] = ""
-	minetest.after(0, function()
-		local pplayer = minetest.get_player_by_name(name)
+	minetest.after(0, function(pname)
+		local pplayer = minetest.get_player_by_name(pname)
 		if pplayer then
 			wieldview:update_wielded_item(pplayer)
 		end
-	end)
+	end, name)
 end)
 
 minetest.register_globalstep(function(dtime)
